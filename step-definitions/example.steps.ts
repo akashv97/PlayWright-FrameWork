@@ -21,7 +21,7 @@ After(async function (this: CustomWorld) {
 });
 
 Given('I navigate to the example site', async function (this: CustomWorld) {
-  await this.page.goto('https://google.com');
+  await this.page.goto('https://www.naukri.com/nlogin/login?msg=0&URL=https%3A%2F%2Fmy.naukri.com%3A80');
   await this.page.waitForTimeout(3000);
 });
 
