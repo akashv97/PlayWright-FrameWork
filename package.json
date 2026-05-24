@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "npx playwright test",
+    "test": "npx cucumber-js --require-module ts-node/register --require ./step-definitions/**/*.ts ./features/**/*.feature",
+    "test:playwright": "npx playwright test",
     "test:headed": "npx playwright test --headed",
     "test:report": "npx playwright show-report",
     "test:debug": "npx playwright test --debug",
     "cucumber": "npx cucumber-js --require-module ts-node/register --require ./step-definitions/**/*.ts ./features/**/*.feature",
-    "mcp:start": "node mcp-server/server.js"
-    ,"mcp:start:ts": "ts-node ./mcp-server/src/server.ts"
+    "mcp:start": "node mcp-server/server.js",
+    "mcp:start:ts": "ts-node ./mcp-server/src/server.ts"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.0",
