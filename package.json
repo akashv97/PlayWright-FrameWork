@@ -1,0 +1,21 @@
+{
+  "name": "playwright-framework",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:report": "npx playwright show-report",
+    "test:debug": "npx playwright test --debug",
+    "cucumber": "npx cucumber-js --require-module ts-node/register --require ./step-definitions/**/*.ts ./features/**/*.feature"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.0.0",
+    "@playwright/test": "^1.40.0",
+    "chai": "^4.3.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.6.2",
+    "@types/chai": "^4.3.5",
+    "@types/node": "^20.11.0"
+  }
+}
