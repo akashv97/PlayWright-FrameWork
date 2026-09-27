@@ -54,7 +54,9 @@ const reportResult = spawnSync(
   }
 );
 
-if (reportResult.status === 0) {
+const isCi = process.env.CI === 'true' || Boolean(process.env.JENKINS_URL || process.env.BUILD_ID);
+
+if (reportResult.status === 0 && !isCi) {
   const reportServer = spawn(
     allureCommand,
     ['open', './allure-report'],
