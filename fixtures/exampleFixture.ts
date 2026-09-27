@@ -1,6 +1,8 @@
-import { settings } from '../settings/config';
+import { getScenarioData } from './index';
+
+const exampleData = getScenarioData('Load example.com and verify its title');
 
 export const exampleFixture = {
-  url: settings.baseUrl,
-  titlePattern: settings.exampleTitle
+  url: exampleData.url,
+  titlePattern: exampleData.title
 };
