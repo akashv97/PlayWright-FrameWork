@@ -1,7 +1,10 @@
 const { spawn, spawnSync } = require('node:child_process');
+const fs = require('node:fs');
 const path = require('node:path');
 
 const projectRoot = path.resolve(__dirname, '..');
+const summaryFile = `.cucumber-summary-${process.pid}.txt`;
+const summaryPath = path.join(projectRoot, summaryFile);
 const cucumberCommand = path.join(
   projectRoot,
   'node_modules',
@@ -23,7 +26,7 @@ const cucumberArgs = [
   './step-definitions/**/*.ts',
   './features/**/*.feature',
   '--format',
-  'progress',
+  `summary:${summaryFile}`,
   '--format',
   'allure-cucumberjs/reporter',
   ...process.argv.slice(2)
@@ -34,6 +37,11 @@ const testResult = spawnSync(process.execPath, [cucumberCommand, ...cucumberArgs
   env: process.env,
   stdio: 'inherit'
 });
+
+if (fs.existsSync(summaryPath)) {
+  process.stdout.write(fs.readFileSync(summaryPath, 'utf8'));
+  fs.unlinkSync(summaryPath);
+}
 
 const reportResult = spawnSync(
   allureCommand,

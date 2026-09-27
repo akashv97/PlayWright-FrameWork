@@ -20,8 +20,10 @@ export class NaukriPage {
   }
 
   async navigateToLandingPage(landingUrl: string) {
-    await this.page.goto(landingUrl);
-    await this.page.waitForTimeout(3000);
-    await this.page.waitForSelector
+    const expectedLandingUrl = new URL(landingUrl);
+    await this.page.waitForURL(
+      url => url.origin === expectedLandingUrl.origin && url.pathname === expectedLandingUrl.pathname,
+      { timeout: 25_000 }
+    );
   }
 }
