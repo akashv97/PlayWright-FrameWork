@@ -1,0 +1,12 @@
+{
+  "Load example.com and verify its title": {
+    "url": "https://example.com",
+    "title": "Example Domain"
+  },
+  "Load naukri website": {
+    "url": "https://www.naukri.com/nlogin/login",
+    "username": "your-qa2-username",
+    "password": "your-qa2-password",
+    "landingUrl": "https://www.naukri.com/mnjuser/homepage"
+  }
+}

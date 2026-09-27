@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { pageUtils } from './utilities';
+import { pageUtils } from './UtilityPage';
 
 export class BasePage {
   readonly page: Page;
